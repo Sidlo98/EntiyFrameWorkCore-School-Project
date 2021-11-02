@@ -10,7 +10,7 @@ namespace WebApi.Entities
     public class ProductEntity
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [Column(TypeName = "nvarchar(150)")]
