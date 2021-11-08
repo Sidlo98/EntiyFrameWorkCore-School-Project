@@ -122,7 +122,7 @@ namespace WebApi.Controllers
                 }
                 else
                 {
-                    return new BadRequestObjectResult(JsonConvert.SerializeObject(new { message = $"A Product with {model.Name} as name already exists." }));
+                    return new BadRequestObjectResult(JsonConvert.SerializeObject(new { message = $"A Product with id: {id} dont exists." }));
                 }
             }
         }
