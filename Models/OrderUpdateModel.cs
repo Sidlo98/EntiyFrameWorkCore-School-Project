@@ -10,6 +10,6 @@ namespace WebApi.Models
         [Column(TypeName = "nvarchar(50)")]
         public string Status { get; set; }
 
-        public virtual ICollection<OrderLineCreateModel> OrderLines { get; set; }
+        public virtual ICollection<OrderLineUpdateModel> OrderLines { get; set; }
     }
 }

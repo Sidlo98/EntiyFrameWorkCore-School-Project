@@ -105,16 +105,18 @@ namespace WebApi.Controllers
         {
             if (id.GetType() != typeof(int))
             {
-                return BadRequest();
+                return new BadRequestObjectResult(JsonConvert.SerializeObject(new { message = $"You must enter a number as Id" }));
             }
             else
             {
                 if(!OrderEntityExists(id))
                 {
-                    return BadRequest();
+                    return new BadRequestObjectResult(JsonConvert.SerializeObject(new { message = $"A order with id: {id} do not exists." }));
                 }
 
                 var order = await _context.Orders.FindAsync(id);
+                _context.Entry(order).State = EntityState.Detached;
+                await _context.SaveChangesAsync();
 
                 var UpdatedOrder = new OrderEntity()
                 {
@@ -123,9 +125,33 @@ namespace WebApi.Controllers
                     Status = model.Status,
                 };
 
-
                 _context.Entry(UpdatedOrder).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
 
+                foreach(var oldOrderLines in await _context.OrderLines.Where(x => x.OrderId == id).ToListAsync())
+                {
+                    _context.OrderLines.Remove(oldOrderLines);
+                    await _context.SaveChangesAsync();
+                }
+
+                foreach(var newOrderLine in model.OrderLines)
+                {
+                    var productExists = await _context.Products.FindAsync(newOrderLine.ProductId);
+                    if(productExists == null)
+                    {
+                        return new BadRequestObjectResult(JsonConvert.SerializeObject(new { message = $"A Prodcut with id: {newOrderLine.ProductId} do not exists." }));
+                    }
+                    var NewOrderLine = new OrderLineEntity()
+                    {
+                        OrderId = id,
+                        ProductId = newOrderLine.ProductId,
+                        Quantity = newOrderLine.Quantity,
+                    };
+                    _context.OrderLines.Add(NewOrderLine);
+                    await _context.SaveChangesAsync();
+                }
+
+                return NoContent();
             }
         }
 

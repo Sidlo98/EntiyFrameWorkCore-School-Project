@@ -5,9 +5,6 @@ namespace WebApi.Models
 {
     public class OrderLineUpdateModel
     {
-        [Key]
-        public int Id { get; set; }
-
         [Required]
         [ForeignKey("ProductEntity")]
         public int ProductId { get; set; }
