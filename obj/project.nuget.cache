@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UK32r4YhMDdfh69DPClMmTdZdep04X17LH6PqeT07t9adV1zVT151jnRVTTDut3gFeGNOjAVgiM/Ak+xYk/n9Q==",
+  "dgSpecHash": "Kh8MxdV0NSFfa+akDHcafUl6A05L2l+4W/z5YezJ8aGKCXYro7tiB7paQ/QgKWo44mlaXVeeDY6C5t3M2kmObA==",
   "success": true,
   "projectFilePath": "C:\\Users\\poppe\\Desktop\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
@@ -136,7 +136,8 @@
     "C:\\Users\\poppe\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\poppe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\poppe\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\poppe\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\poppe\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\poppe\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
